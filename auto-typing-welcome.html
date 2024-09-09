@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-typing Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #welcome-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome-message"></div>
+
+    <script>
+        const welcomeMessage = "Welcome to our website!";
+        const messageElement = document.getElementById('welcome-message');
+        let index = 0;
+
+        function typeMessage() {
+            if (index < welcomeMessage.length) {
+                messageElement.innerHTML += welcomeMessage.charAt(index);
+                index++;
+                setTimeout(typeMessage, 100);
+            }
+        }
+
+        window.onload = typeMessage;
+    </script>
+</body>
+</html>
